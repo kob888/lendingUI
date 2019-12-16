@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>client-app</title>
+</head>
+
+<body>
+    <div id="lending">
+        <div>
+            <h2>{{ question }}</h2>
+        </div>
+        <div>
+            <div v-for="item in items">
+                <h2>{{ item.question }}</h2>
+                <h5>{{ item.answer }}</h5>
+            </div>
+
+        </div>
+    </div>
+    <!-- built files will be auto injected -->
+</body>
+<script>
+    new Vue({
+        el: '#lending',
+        data: {
+            question: 'Question?',
+            rate: 10,
+            items: [{
+                'question': 'email-queue-item',
+                'answer': 'red'
+            }, {
+                'question': 'message-queue-item',
+                'answer': 'blue'
+            }, {
+                'question': 'email-queue-item',
+                'answer': 'green'
+            }]
+        }
+    })
+</script>
+
+</html>
