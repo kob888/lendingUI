@@ -9,6 +9,40 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <title>client-app</title>
 </head>
+<style>
+    .numberCircle {
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        padding: 8px;
+        background: #fff;
+        border: 5px solid #666;
+        color: #666;
+        text-align: center;
+        font: 32px Arial, sans-serif;
+        margin: 5px;
+    }
+    
+    textarea {
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;
+        /* Firefox, other Gecko */
+        box-sizing: border-box;
+        /* Opera/IE 8+ */
+    }
+    
+    .inner {
+        width: 50%;
+        margin: 0 auto;
+    }
+    
+    section {
+        height: 350px;
+        padding: 0 370px;
+    }
+</style>
 
 <body>
     <div id="lending">
@@ -17,8 +51,26 @@
         </div>
         <div>
             <div v-for="item in items">
-                <h2>{{ item.question }}</h2>
-                <h5>{{ item.answer }}</h5>
+                <template>
+                    <section>
+                        <div class="inner">
+                            <h2>{{ item.question }}</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th v-for="num in 10">
+                                            <div class="numberCircle">{{ num }}</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div>
+                                <textarea type="text" v-model="item.answer" value=""></textarea>
+                            </div>
+                            <h5>{{ item.answer }}</h5>
+                        </div>
+                    </section>                    
+                </template>
             </div>
 
         </div>
@@ -31,7 +83,26 @@
         data: {
             question: 'Question?',
             rate: 10,
+            comment: '',
             items: [{
+                'question': 'email-queue-item',
+                'answer': 'red'
+            }, {
+                'question': 'message-queue-item',
+                'answer': 'blue'
+            }, {
+                'question': 'email-queue-item',
+                'answer': 'green'
+            }, {
+                'question': 'email-queue-item',
+                'answer': 'red'
+            }, {
+                'question': 'message-queue-item',
+                'answer': 'blue'
+            }, {
+                'question': 'email-queue-item',
+                'answer': 'green'
+            }, {
                 'question': 'email-queue-item',
                 'answer': 'red'
             }, {
